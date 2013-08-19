@@ -9,7 +9,7 @@
 		var degStep = radiusStep;
 		
 		
-		function inc() {	//Функция для возрастания значений
+		function inc() { //Функция для возрастания значений
 			if (borderRadius < 0.52*width) {
 				borderRadius+=radiusStep;
 				rotateDeg+= degStep || radiusStep; 
@@ -19,8 +19,8 @@
 				
 			}
 				
-		function dec() {	//Функция для смены значений
-			if (borderRadius-radiusStep <= 0) borderRadius=rotateDeg=0;   //Фикс для Лисицы, обрезающей максимальные значения							
+		function dec() //Функция для снижения
+			if (borderRadius-radiusStep <= 0) borderRadius=rotateDeg=0; //Фикс для Лисицы, обрезающей максимальные значения							
 			else {
 				borderRadius-=radiusStep;
 				rotateDeg-= degStep || radiusStep; 
@@ -33,11 +33,10 @@
 	
 		//Вешаем обработчики
 		
-		$(document).keydown(function(e) {		//Обработчик клавиш		
+		$(document).keydown(function(e) { //Обработчик клавиш		
 			var kcode = e.which;						
-			if (kcode == 38) inc();  
-			if (kcode == 39) alert($('div#squaround').css('border-top-right-radius'));			//Нажатие стрелки вверх
-			if (kcode == 40) dec();    //Нажатие стрелк и вверх															
+			if (kcode == 38) inc();  //Нажатие стрелки вверх
+			if (kcode == 40) dec(); //Нажатие стрелк и вниз															
 			})
 		
 		$('div#squaround').bind(("onwheel" in window) ? "wheel" : "mousewheel", function(e) { //Обработчик колесика мыши
